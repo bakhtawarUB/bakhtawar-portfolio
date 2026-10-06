@@ -1,10 +1,10 @@
 # Media
 
-Drop real assets here and update `src/data/profile.ts`.
+- `photo.jpg` — portrait used by the ID card in the About section
+  (`src/components/about/IdCard.tsx`). Square source, cropped with
+  `object-fit: cover`. Keep it under ~150 KB.
+- `og-image.svg` — generated social share card. Replace with a 1200×630
+  `og-image.png` when a designed version exists (update `index.html` too).
 
-- `portrait.jpg` — professional portrait (4:5, ~1000px wide)
-- `og-image.png` — 1200×630 social share card
-- `projects/*.jpg` — case-study / project screenshots
-
-Until then, the site uses the built-in placeholder portrait
-(`src/components/about/Portrait.tsx`) and the generated `og-image.svg`.
+Stack icons live one level up in `public/icons/` — vendored from
+[devicon](https://github.com/devicons/devicon) (MIT).

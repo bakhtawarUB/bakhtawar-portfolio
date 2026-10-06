@@ -19,6 +19,11 @@ export function useSmoothScroll(enabled: boolean) {
     gsap.ticker.add(raf)
     gsap.ticker.lagSmoothing(0)
 
+    const navOffset = () => {
+      const raw = getComputedStyle(document.documentElement).getPropertyValue('--nav-h')
+      return -(parseInt(raw, 10) || 72) - 8
+    }
+
     const onClick = (e: MouseEvent) => {
       const anchor = (e.target as HTMLElement)?.closest?.('a[href^="#"]')
       if (!anchor) return
@@ -27,7 +32,9 @@ export function useSmoothScroll(enabled: boolean) {
       const target = document.querySelector(id)
       if (!target) return
       e.preventDefault()
-      lenis.scrollTo(target as HTMLElement, { offset: -64 })
+      lenis.scrollTo(target as HTMLElement, { offset: navOffset() })
+      // keep the URL in sync (the native anchor jump is prevented above)
+      history.replaceState(null, '', id)
     }
     document.addEventListener('click', onClick)
 

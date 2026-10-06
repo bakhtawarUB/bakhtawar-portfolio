@@ -1,36 +1,34 @@
 import { useState } from 'react'
 
 /**
- * Icon registry. Remote icons come from the devicon CDN (kept out of the bundle);
- * a few bespoke keys fall back to inline SVG. Every image has a text fallback so
- * the UI degrades gracefully if the CDN is blocked.
+ * Icon registry. The devicon SVGs are vendored into `public/icons/` so the site
+ * works offline and can never break on a CDN outage. Bespoke keys fall back to
+ * inline SVG, and every image degrades to a text label if a file is missing.
  */
 
-const DEV = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/'
-
-const REMOTE: Record<string, string> = {
-  python: 'python/python-original.svg',
-  react: 'react/react-original.svg',
-  ts: 'typescript/typescript-original.svg',
-  js: 'javascript/javascript-original.svg',
-  vue: 'vuejs/vuejs-original.svg',
-  angular: 'angularjs/angularjs-original.svg',
-  next: 'nextjs/nextjs-original.svg',
-  node: 'nodejs/nodejs-original.svg',
-  laravel: 'laravel/laravel-plain.svg',
-  mongo: 'mongodb/mongodb-original.svg',
-  php: 'php/php-original.svg',
-  mysql: 'mysql/mysql-original.svg',
-  html: 'html5/html5-original.svg',
-  css: 'css3/css3-original.svg',
-  git: 'git/git-original.svg',
-  linux: 'linux/linux-original.svg',
-  c: 'c/c-original.svg',
-  cpp: 'cplusplus/cplusplus-original.svg',
-  aws: 'amazonwebservices/amazonwebservices-original.svg',
-  firebase: 'firebase/firebase-plain.svg',
-  java: 'java/java-original.svg',
-  android: 'androidstudio/androidstudio-original.svg',
+const LOCAL: Record<string, string> = {
+  python: 'python.svg',
+  react: 'react.svg',
+  ts: 'ts.svg',
+  js: 'js.svg',
+  vue: 'vue.svg',
+  angular: 'angular.svg',
+  next: 'next.svg',
+  node: 'node.svg',
+  laravel: 'laravel.svg',
+  mongo: 'mongo.svg',
+  php: 'php.svg',
+  mysql: 'mysql.svg',
+  html: 'html.svg',
+  css: 'css.svg',
+  git: 'git.svg',
+  linux: 'linux.svg',
+  c: 'c.svg',
+  cpp: 'cpp.svg',
+  aws: 'aws.svg',
+  firebase: 'firebase.svg',
+  java: 'java.svg',
+  android: 'android.svg',
 }
 
 function CustomGlyph({ k, name }: { k: string; name: string }) {
@@ -82,16 +80,15 @@ export function StackIcon({
   size?: number
 }) {
   const [failed, setFailed] = useState(false)
-  const url = REMOTE[k]
+  const file = LOCAL[k]
 
-  if (url && !failed) {
+  if (file && !failed) {
     return (
       <img
-        src={DEV + url}
+        src={`/icons/${file}`}
         alt={name}
         width={size}
         height={size}
-        loading="lazy"
         decoding="async"
         onError={() => setFailed(true)}
       />

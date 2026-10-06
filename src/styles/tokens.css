@@ -7,16 +7,23 @@
   /* Brand / surface */
   --blue: #1d34ff;
   --blue-ink: #1626c9;
-  --paper: #f3f4f6;
-  --ink: #0b0f2e;
-  --mute: #5b6080;
-  --rule: #d7d9e2;
-  --hi: #ffe94d;
+  --paper: #f4f4f1;
+  --ink: #080b24;
+  --mute: #575c7e;
+  --rule: #d6d6cf;
+  --hi: #ff8a3d;
+  --hi-2: #ffe24d;
+  --cyan: #3de0d4;
+
+  /* On-blue surfaces (hero / certs stay mid-blue) */
+  --on-blue: #eef1ff;
+  --on-blue-dim: #b9c0ea;
 
   /* Derived */
   --ink-soft: color-mix(in srgb, var(--ink) 62%, var(--paper));
   --blue-wash: color-mix(in srgb, var(--blue) 10%, var(--paper));
-  --glass: color-mix(in srgb, var(--ink) 78%, transparent);
+  --glass: color-mix(in srgb, var(--ink) 60%, transparent);
+  --grid-line: color-mix(in srgb, var(--ink) 8%, transparent);
 
   /* Type */
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
@@ -61,26 +68,28 @@
 
 /* Dark theme — explicit toggle */
 :root[data-theme='dark'] {
-  --paper: #0a0d24;
-  --ink: #f3f4f6;
-  --mute: #a3a8cc;
-  --rule: #2a2f5c;
+  --paper: #070a1c;
+  --ink: #f4f4f1;
+  --mute: #9aa0c8;
+  --rule: #23284a;
   --ink-soft: color-mix(in srgb, var(--ink) 70%, var(--paper));
   --blue-wash: color-mix(in srgb, var(--blue) 22%, var(--paper));
-  --glass: color-mix(in srgb, #0b0f2e 82%, transparent);
+  --glass: color-mix(in srgb, #05081a 72%, transparent);
+  --grid-line: color-mix(in srgb, #ffffff 6%, transparent);
   color-scheme: dark;
 }
 
 /* Dark theme — system preference (unless explicitly light) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper: #0a0d24;
-    --ink: #f3f4f6;
-    --mute: #a3a8cc;
-    --rule: #2a2f5c;
+    --paper: #070a1c;
+    --ink: #f4f4f1;
+    --mute: #9aa0c8;
+    --rule: #23284a;
     --ink-soft: color-mix(in srgb, var(--ink) 70%, var(--paper));
     --blue-wash: color-mix(in srgb, var(--blue) 22%, var(--paper));
-    --glass: color-mix(in srgb, #0b0f2e 82%, transparent);
+    --glass: color-mix(in srgb, #05081a 72%, transparent);
+    --grid-line: color-mix(in srgb, #ffffff 6%, transparent);
     color-scheme: dark;
   }
 }

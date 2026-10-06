@@ -6,43 +6,6 @@ import { profile } from '../../data/profile'
 
 const HeroCanvas = lazy(() => import('./HeroCanvas'))
 
-function Stamp() {
-  return (
-    <svg
-      className="stamp"
-      viewBox="0 0 200 200"
-      role="img"
-      aria-label="Verified engineer, open to roles"
-    >
-      <circle cx="100" cy="100" r="98" fill="#ffe94d" />
-      <defs>
-        <path
-          id="stamp-circle"
-          d="M100 100m-72 0a72 72 0 1 1 144 0a72 72 0 1 1-144 0"
-        />
-      </defs>
-      <text
-        className="ring"
-        fontFamily="Geist, sans-serif"
-        fontWeight="600"
-        fontSize="15"
-        letterSpacing="3.2"
-        fill="#0b0f2e"
-      >
-        <textPath href="#stamp-circle">VERIFIED ENGINEER / OPEN TO ROLES / </textPath>
-      </text>
-      <path
-        d="M68 102l22 22 44-48"
-        fill="none"
-        stroke="#1d34ff"
-        strokeWidth="13"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
 export function Hero() {
   const reduced = useReducedMotion()
   const { setRef, inView } = useInView<HTMLElement>({ threshold: 0, once: false, rootMargin: '120px' })
@@ -114,7 +77,51 @@ export function Hero() {
         </Suspense>
       ) : null}
 
-      <Stamp />
+      <div className="hero-ghost" aria-hidden="true">
+        {profile.first}
+      </div>
+
+      <figure className="stamp" aria-label="Verified engineer, open to roles">
+        <svg viewBox="0 0 200 200" role="img">
+          <circle cx="100" cy="100" r="98" fill="#ff8a3d" />
+          <defs>
+            <path id="stamp-circle" d="M100 100m-72 0a72 72 0 1 1 144 0a72 72 0 1 1-144 0" />
+          </defs>
+          <text
+            className="ring"
+            fontFamily="Geist, sans-serif"
+            fontWeight="600"
+            fontSize="15"
+            letterSpacing="3.2"
+            fill="#080b24"
+          >
+            <textPath href="#stamp-circle" xlinkHref="#stamp-circle">
+              VERIFIED ENGINEER / OPEN TO ROLES /
+            </textPath>
+          </text>
+          <path
+            d="M68 102l22 22 44-48"
+            fill="none"
+            stroke="#1d34ff"
+            strokeWidth="13"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </figure>
+
+      <div className="hud hud-tl" aria-hidden="true">
+        <span className="hud-key">{'{'}</span> IDENTITY ENGINEER
+      </div>
+      <div className="hud hud-tr" aria-hidden="true">
+        LAT 31.52° / LON 74.35°
+      </div>
+      <div className="hud hud-bl" aria-hidden="true">
+        KYC · KYB · AML · SDK
+      </div>
+      <div className="hud hud-br" aria-hidden="true">
+        STATUS <b>VERIFIED</b>
+      </div>
 
       <div className="wrap">
         <h1 className="name" aria-label={profile.name}>

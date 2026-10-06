@@ -3,6 +3,7 @@ import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { useInView } from '../../hooks/useInView'
 import { profile, stats } from '../../data/profile'
 import type { Stat } from '../../data/types'
+import { IdCard } from './IdCard'
 
 function StatItem({ stat }: { stat: Stat }) {
   const reduced = useReducedMotion()
@@ -38,24 +39,6 @@ function StatItem({ stat }: { stat: Stat }) {
   )
 }
 
-export function Portrait() {
-  return (
-    <figure className="portrait">
-      <div className="ph" role="img" aria-label={`Portrait of ${profile.name}`}>
-        B
-      </div>
-      <i className="cn tl" aria-hidden="true" />
-      <i className="cn tr" aria-hidden="true" />
-      <i className="cn bl" aria-hidden="true" />
-      <i className="cn br" aria-hidden="true" />
-      <figcaption>
-        <b>{profile.name}</b>
-        <span>Verified</span>
-      </figcaption>
-    </figure>
-  )
-}
-
 export function About() {
   return (
     <section className="about" id="about">
@@ -69,7 +52,7 @@ export function About() {
             ))}
           </div>
         </div>
-        <Portrait />
+        <IdCard />
       </div>
     </section>
   )

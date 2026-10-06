@@ -29,7 +29,7 @@ const FRAG = /* glsl */ `
   void main() {
     float d = length(gl_PointCoord - 0.5);
     if (d > 0.5) discard;
-    vec3 c = mix(vec3(0.85, 0.9, 1.0), vec3(1.0, 0.88, 0.3), vA);
+    vec3 c = mix(vec3(0.86, 0.92, 0.98), vec3(1.0, 0.62, 0.26), vA);
     gl_FragColor = vec4(c, (0.75 - d) * (0.35 + vA * 0.65));
   }
 `

@@ -50,9 +50,12 @@ All copy lives in `src/data/*.ts` — edit content there, not inside components.
 ## Content to replace (placeholders)
 
 - `src/data/profile.ts` → real **LinkedIn** URL.
-- `public/Bakhtawar_Kashif_CV.pdf` → real CV.
-- `public/media/portrait.*` → real portrait.
-- `public/media/og-image.*` → social share image.
+- `public/Bakhtawar_Kashif_CV.pdf` → real CV (a stub ships today).
+- `public/media/og-image.*` → 1200×630 social share image (SVG stand-in ships).
+
+The portrait is in place at `public/media/photo.jpg` (shown inside the ID card).
+Stack icons are vendored SVGs in `public/icons/` (devicon, MIT license) so the
+site has no runtime CDN dependency.
 
 ## License
 

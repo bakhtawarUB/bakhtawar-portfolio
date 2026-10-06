@@ -14,6 +14,7 @@ import { Certificates } from './components/certs/Certificates'
 import { Contact } from './components/contact/Contact'
 import { Preloader } from './components/ui/Preloader'
 import { CursorRing } from './components/ui/CursorRing'
+import { Atmosphere } from './components/ui/Atmosphere'
 import { useReducedMotion } from './hooks/useReducedMotion'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import { useTheme, type Theme } from './hooks/useTheme'
@@ -47,6 +48,7 @@ export default function App() {
   return (
     <>
       <Preloader />
+      <Atmosphere />
       <ProgressBar />
       <Header theme={theme} onToggleTheme={toggleTheme} />
       <CursorRing />

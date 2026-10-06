@@ -1,6 +1,6 @@
 import type { StackItem } from './types'
 
-/* remote: true → devicon CDN image. remote omitted/false → inline SVG from icons.tsx */
+/* remote: true → SVG bundled in public/icons/ (devicon, MIT). omitted/false → inline SVG */
 export const stackItems: StackItem[] = [
   { key: 'react', name: 'React', cat: 'f', remote: true },
   { key: 'python', name: 'Python', cat: 'b', remote: true },
