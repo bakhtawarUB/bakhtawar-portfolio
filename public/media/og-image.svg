@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d34ff"/>
+      <stop offset="1" stop-color="#0b0f2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="150" r="96" fill="#ffe94d"/>
+  <path d="M995 152l30 30 60-66" fill="none" stroke="#1d34ff" stroke-width="16"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="72" y="300" fill="#f3f4f6" font-family="Georgia, 'Instrument Serif', serif"
+        font-size="118" font-style="italic">Bakhtawar</text>
+  <text x="72" y="420" fill="#f3f4f6" font-family="Georgia, 'Instrument Serif', serif"
+        font-size="118">Kashif</text>
+  <text x="76" y="500" fill="#c9ccea" font-family="system-ui, sans-serif"
+        font-size="30" letter-spacing="1">Frontend &amp; Full Stack Engineer · Identity Verification</text>
+</svg>
