@@ -1,5 +1,6 @@
 import { experience, smallRoles } from '../../data/experience'
 import { StackIcon } from '../ui/Icon'
+import { Points } from '../ui/Points'
 
 export function Work() {
   return (
@@ -25,11 +26,7 @@ export function Work() {
               <span className="pl" aria-hidden="true" />
             </summary>
             <div className="body">
-              <ul>
-                {job.points.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
-              </ul>
+              <Points items={job.points} />
               <div className="ico">
                 {job.tech.map((k) => (
                   <span key={k} title={k}>

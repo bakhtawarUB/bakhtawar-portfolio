@@ -4,6 +4,7 @@ import { useInView } from '../../hooks/useInView'
 import { profile, stats } from '../../data/profile'
 import type { Stat } from '../../data/types'
 import { IdCard } from './IdCard'
+import { Facts } from '../ui/Facts'
 
 function StatItem({ stat }: { stat: Stat }) {
   const reduced = useReducedMotion()
@@ -45,7 +46,7 @@ export function About() {
       <div className="wrap">
         <div>
           <p className="lede">{profile.about.lede}</p>
-          <p className="s">{profile.about.body}</p>
+          <Facts items={profile.about.lines} />
           <div className="stats">
             {stats.map((s) => (
               <StatItem key={s.label} stat={s} />

@@ -24,6 +24,7 @@
   --blue-wash: color-mix(in srgb, var(--blue) 10%, var(--paper));
   --glass: color-mix(in srgb, var(--ink) 60%, transparent);
   --grid-line: color-mix(in srgb, var(--ink) 8%, transparent);
+  --accent-text: var(--blue);
 
   /* Type */
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
@@ -76,6 +77,7 @@
   --blue-wash: color-mix(in srgb, var(--blue) 22%, var(--paper));
   --glass: color-mix(in srgb, #05081a 72%, transparent);
   --grid-line: color-mix(in srgb, #ffffff 6%, transparent);
+  --accent-text: color-mix(in srgb, var(--blue) 42%, #fff);
   color-scheme: dark;
 }
 
@@ -90,6 +92,7 @@
     --blue-wash: color-mix(in srgb, var(--blue) 22%, var(--paper));
     --glass: color-mix(in srgb, #05081a 72%, transparent);
     --grid-line: color-mix(in srgb, #ffffff 6%, transparent);
+    --accent-text: color-mix(in srgb, var(--blue) 42%, #fff);
     color-scheme: dark;
   }
 }

@@ -8,7 +8,7 @@ import { StackIcon } from '../ui/Icon'
 type Filter = 'all' | StackCategory
 
 export function Stack() {
-  const [filter, setFilter] = useState<Filter>('all')
+  const [filter, setFilter] = useState<Filter>('f')
   const reduced = useReducedMotion()
   const gridRef = useRef<HTMLDivElement>(null)
 
@@ -55,11 +55,11 @@ export function Stack() {
           {visible.map((item, i) => (
             <div
               key={item.key}
-              className={`t${i === 0 && filter === 'all' ? ' hero-t' : ''}`}
+              className={`t${i === 0 ? ' hero-t' : ''}`}
               tabIndex={0}
               title={item.name}
             >
-              <StackIcon k={item.key} name={item.name} size={i === 0 && filter === 'all' ? 64 : 28} />
+              <StackIcon k={item.key} name={item.name} size={i === 0 ? 64 : 28} />
               <em>{item.name}</em>
             </div>
           ))}

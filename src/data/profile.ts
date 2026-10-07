@@ -26,8 +26,20 @@ export const profile = {
   about: {
     lede:
       'I design and build the screens where people prove who they are, and the SDKs that let other companies ship them.',
-    body:
-      'For about three years I have worked on KYC, KYB and AML interfaces in React, Vue.js and Angular, with Laravel and MongoDB behind them when needed. Lately I also build AI agents that take a task from a ClickUp requirement all the way to deployment. I graduated in Computer Engineering from ITU Lahore with a 3.53 CGPA.',
+    lines: [
+      {
+        tag: 'Three years',
+        text: 'KYC, KYB and AML interfaces in React, Vue.js and Angular, with Laravel and MongoDB behind them when needed.',
+      },
+      {
+        tag: 'Lately',
+        text: 'AI agents that take a task from a ClickUp requirement all the way to deployment.',
+      },
+      {
+        tag: 'Education',
+        text: 'BSc Computer Engineering, ITU Lahore. CGPA 3.53.',
+      },
+    ],
   },
 } as const
 
