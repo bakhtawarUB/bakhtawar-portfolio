@@ -9,9 +9,9 @@
   <circle cx="1040" cy="150" r="96" fill="#ffe94d"/>
   <path d="M995 152l30 30 60-66" fill="none" stroke="#1d34ff" stroke-width="16"
         stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="72" y="300" fill="#f3f4f6" font-family="Georgia, 'Instrument Serif', serif"
+  <text x="72" y="300" fill="#f3f4f6" font-family="Georgia, 'Fraunces', serif"
         font-size="118" font-style="italic">Bakhtawar</text>
-  <text x="72" y="420" fill="#f3f4f6" font-family="Georgia, 'Instrument Serif', serif"
+  <text x="72" y="420" fill="#f3f4f6" font-family="Georgia, 'Fraunces', serif"
         font-size="118">Kashif</text>
   <text x="76" y="500" fill="#c9ccea" font-family="system-ui, sans-serif"
         font-size="30" letter-spacing="1">Frontend &amp; Full Stack Engineer · Identity Verification</text>

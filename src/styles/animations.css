@@ -32,15 +32,7 @@
   }
 }
 
-/* Entrance helpers (used by reveal components as a fallback / no-JS state) */
-.reveal {
-  opacity: 1;
-}
-
-html.motion-ready .reveal {
-  opacity: 0;
-}
-
+/* Reduced-motion safety net */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -54,11 +46,6 @@ html.motion-ready .reveal {
     transition-duration: 0.001ms !important;
   }
 
-  html.motion-ready .reveal {
-    opacity: 1;
-  }
-
-  .stamp .ring,
   .band .track {
     animation: none;
   }

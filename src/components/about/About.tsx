@@ -45,7 +45,9 @@ export function About() {
     <section className="about" id="about">
       <div className="wrap">
         <div>
-          <p className="lede">{profile.about.lede}</p>
+          <h2 className="lede" id="about-heading">
+            {profile.about.lede}
+          </h2>
           <Facts items={profile.about.lines} />
           <div className="stats">
             {stats.map((s) => (

@@ -1,41 +1,17 @@
-import type { Project, CaseStudy, JourneyLane } from './types'
-
-export const projects: Project[] = [
-  {
-    title: 'AI Self-Checkout',
-    body: 'Final year project. Computer vision and machine learning recognize products in real time, with frontend dashboards for live detection.',
-    tech: ['python', 'react', 'vue'],
-  },
-  {
-    title: 'Bakery Management',
-    body: 'Operations, inventory and order management system for a bakery.',
-    tech: ['php', 'mysql', 'js'],
-  },
-  {
-    title: 'Bakery Mobile App',
-    body: 'Android app for online ordering and customer management.',
-    tech: ['java', 'firebase', 'android'],
-  },
-  {
-    title: 'Robotics and IoT',
-    body: 'Obstacle avoidance and line-following robot, temperature and humidity sensing, fingerprint and ROS-based projects.',
-    tech: ['python', 'c'],
-  },
-]
+import type { FeaturedProject, OtherProject, JourneyLane } from './types'
 
 /**
- * Case studies — problem → approach → impact.
- * Content is grounded in the résumé details. Expand with real metrics when available.
+ * Featured projects — the story around the work, written from the visitor's
+ * point of view: the problem, the part I played, and what it produced.
  */
-export const caseStudies: CaseStudy[] = [
+export const featured: FeaturedProject[] = [
   {
     title: 'Embeddable identity Web SDK',
     context: 'Shufti Pro',
     problem:
       'Every enterprise client needed document, selfie and liveness capture, but shipping it per-integration fragmented the experience and stalled deals.',
-    approach:
-      'Built a reusable embeddable Web SDK in React usable from Vue and Angular hosts, exposing a stable API for backend verification flows while keeping UI, responsiveness and accessibility consistent.',
-    impact: ['One SDK, many platforms', 'Faster client onboarding', 'Consistent capture UX'],
+    role: 'I owned the SDK surface end to end — the capture flow, the public API, and how it renders inside any host app.',
+    result: ['One SDK works across React, Vue and Angular', 'Clients get to verify faster', 'Consistent capture UX everywhere'],
     tech: ['react', 'vue', 'angular'],
   },
   {
@@ -43,9 +19,8 @@ export const caseStudies: CaseStudy[] = [
     context: 'Shufti Pro & Facia',
     problem:
       'Reviewers juggled high-volume KYC, KYB and AML cases across dense enterprise screens where clarity and speed decided outcomes.',
-    approach:
-      'Designed and shipped the review interfaces and onboarding flows, wired to Laravel and MongoDB services, optimising responsiveness and component reuse so new verification products could launch on the same foundation.',
-    impact: ['Reusable product surface', 'Faster review decisions', 'Two verification products'],
+    role: 'I designed the review screens and boarding flows, and built the shared component layer that new verification products launch on.',
+    result: ['A reusable product surface', 'Faster review decisions', 'Two verification products shipped'],
     tech: ['react', 'laravel', 'mongo'],
   },
   {
@@ -53,10 +28,34 @@ export const caseStudies: CaseStudy[] = [
     context: 'Programmers Force · AI engineering',
     problem:
       'Repetitive engineering setup around repositories consumed time that was better spent building product.',
-    approach:
-      'Built specialised agents (frontend, backend, database, DevOps, orchestration) with reusable skills and context systems across the full Shufti Pro repositories, orchestrating a path from a ClickUp requirement to deployment.',
-    impact: ['Automated context handling', 'Requirement → deployment', 'AI in daily workflow'],
+    role: 'I built the frontend and orchestration agents, and the pipeline that goes from a ClickUp requirement to a deployed change.',
+    result: ['Automated context handling', 'Requirement to deployment', 'AI in the daily workflow'],
     tech: ['claude', 'python', 'git'],
+  },
+]
+
+/** Smaller pieces of work, listed plainly. */
+export const others: OtherProject[] = [
+  {
+    title: 'AI Self-Checkout',
+    blurb:
+      'Final year project. Computer vision and machine learning recognize products in real time, with a dashboard for live detection.',
+    tech: ['python', 'react'],
+  },
+  {
+    title: 'Bakery Management',
+    blurb: 'Operations, inventory and order management system for a bakery.',
+    tech: ['php', 'mysql', 'js'],
+  },
+  {
+    title: 'Bakery Mobile App',
+    blurb: 'Android app for online ordering and customer management.',
+    tech: ['java', 'firebase', 'android'],
+  },
+  {
+    title: 'Robotics and IoT',
+    blurb: 'Obstacle avoidance robots, temperature and humidity sensing, and ROS-based projects.',
+    tech: ['python', 'c'],
   },
 ]
 

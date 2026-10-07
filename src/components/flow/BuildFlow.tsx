@@ -1,6 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
-import { gsap, ScrollTrigger } from '../../lib/gsap'
-import { useReducedMotion } from '../../hooks/useReducedMotion'
+import { useState } from 'react'
 import { flowSteps } from '../../data/flow'
 
 const ICONS: Record<string, JSX.Element> = {
@@ -33,49 +31,10 @@ const ICONS: Record<string, JSX.Element> = {
 }
 
 export function BuildFlow() {
-  const reduced = useReducedMotion()
   const [index, setIndex] = useState(0)
-  const [hold, setHold] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  // auto-advance
-  useLayoutEffect(() => {
-    if (reduced) return
-    const id = window.setInterval(() => {
-      setHold((h) => {
-        if (!h) setIndex((i) => (i + 1) % flowSteps.length)
-        return h
-      })
-    }, 2600)
-    return () => window.clearInterval(id)
-  }, [reduced])
-
-  // desktop scroll-pin steps through the flow
-  useLayoutEffect(() => {
-    if (reduced || !sectionRef.current) return
-    const mq = window.matchMedia('(min-width: 761px) and (min-height: 680px)')
-    if (!mq.matches) return
-    const st = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top top',
-      end: '+=1400',
-      pin: true,
-      scrub: true,
-      onUpdate: (self) => {
-        setHold(true)
-        setIndex(Math.min(flowSteps.length - 1, Math.floor(self.progress * flowSteps.length)))
-      },
-    })
-    return () => st.kill()
-  }, [reduced])
-
-  const select = (i: number) => {
-    setHold(true)
-    setIndex(i)
-  }
 
   return (
-    <section className="build" ref={sectionRef} aria-label="How I build">
+    <section className="build" aria-label="How I build">
       <div className="wrap">
         <h2 className="section-h2">What I build</h2>
         <p className="bs">
@@ -90,7 +49,7 @@ export function BuildFlow() {
               key={step.title}
               type="button"
               className={`stp${i === index ? ' on' : ''}${i < index ? ' done' : ''}`}
-              onClick={() => select(i)}
+              onClick={() => setIndex(i)}
               aria-current={i === index ? 'step' : undefined}
             >
               <span className="dot">{ICONS[step.icon]}</span>

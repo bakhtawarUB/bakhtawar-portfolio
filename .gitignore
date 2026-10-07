@@ -37,3 +37,9 @@ coverage
 .cache
 .temp
 .eslintcache
+.vercel
+
+# opencode agent config (local only)
+.opencode/
+AGENTS.md
+opencode.json

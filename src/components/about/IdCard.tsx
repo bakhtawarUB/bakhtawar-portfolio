@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { gsap } from '../../lib/gsap'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { usePointerFine } from '../../hooks/usePointerFine'
 import { profile } from '../../data/profile'
@@ -14,30 +13,32 @@ export function IdCard() {
   const reduced = useReducedMotion()
   const fine = usePointerFine()
 
-  // subtle 3D tilt following the pointer
+  // subtle 3D tilt following the pointer (CSS vars + transition, no gsap)
+  const setTilt = (rx: number, ry: number) => {
+    if (!ref.current) return
+    ref.current.style.setProperty('--rx', `${rx}deg`)
+    ref.current.style.setProperty('--ry', `${ry}deg`)
+  }
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (reduced || !fine || !ref.current) return
     const b = ref.current.getBoundingClientRect()
     const rx = ((e.clientY - b.top) / b.height - 0.5) * -9
     const ry = ((e.clientX - b.left) / b.width - 0.5) * 11
-    gsap.to(ref.current, { rotateX: rx, rotateY: ry, duration: 0.5, ease: 'power2.out', transformPerspective: 900 })
+    setTilt(rx, ry)
   }
-  const onLeave = () => {
-    if (reduced || !ref.current) return
-    gsap.to(ref.current, { rotateX: 0, rotateY: 0, duration: 0.7, ease: 'power2.out' })
-  }
+  const onLeave = () => setTilt(0, 0)
 
   return (
     <figure className="idcard" ref={ref} onPointerMove={onMove} onPointerLeave={onLeave}>
       <div className="idcard-inner">
-        <div className="id-photo" role="img" aria-label={`Portrait of ${profile.name}`}>
+        <div className="id-photo">
           <span aria-hidden="true">B</span>
           <img
             className="id-photo-img"
-            src="/media/photo.jpg"
+            src="/media/photo.webp"
             width={1024}
             height={1024}
-            alt=""
+            alt={`Portrait of ${profile.name}`}
             loading="lazy"
             decoding="async"
             onError={(e) => {

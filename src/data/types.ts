@@ -42,19 +42,18 @@ export interface SmallRole {
   body: string
 }
 
-export interface Project {
-  title: string
-  body: string
-  tech: string[]
-  href?: string
-}
-
-export interface CaseStudy {
+export interface FeaturedProject {
   title: string
   context: string
   problem: string
-  approach: string
-  impact: string[]
+  role: string
+  result: string[]
+  tech: string[]
+}
+
+export interface OtherProject {
+  title: string
+  blurb: string
   tech: string[]
 }
 

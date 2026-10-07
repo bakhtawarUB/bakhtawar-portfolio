@@ -1,8 +1,7 @@
 # Bakhtawar Kashif — Portfolio
 
-A cinematic, graphics-first portfolio for an **identity-verification** frontend &
-full-stack engineer. Built with React + TypeScript + Vite, motion by
-GSAP / ScrollTrigger / Lenis, and WebGL by react-three-fiber.
+A graphics-first portfolio for an **identity-verification** frontend &
+full-stack engineer. Built with React + TypeScript + Vite.
 
 > Focus: KYC / KYB / AML interfaces, embeddable Web SDKs, and AI agent
 > workflows — presented as a product a client would be proud to ship.
@@ -10,15 +9,28 @@ GSAP / ScrollTrigger / Lenis, and WebGL by react-three-fiber.
 **Live:** https://bakhtawar-portfolio-theta.vercel.app
 **Repo:** https://github.com/bakhtawarUB/bakhtawar-portfolio
 
+## Design highlights
+
+- **Hero verification flow** — the one memorable moment: an animated
+  "verifying profile" scan that closes on a VERIFIED stamp, mirrors the
+  product focus, and auto-runs once on load (replay included). Pure CSS +
+  rAF, no animation library.
+- **Try the SDK** — a peek at the identity-verify web SDK: code snippet
+  with one-click copy and a live mini-widget that runs the flow.
+- **Featured projects** — expandable rows that state the *problem*, the
+  *role* that was played, and the *result*.
+- Everything else stays quiet: typographic hero, plain copy, CSS-only
+  scroll effects, dual light/dark themes.
+
 ## Stack
 
 | Area      | Tech |
 | --------- | ---- |
 | Framework | React 18 + TypeScript + Vite |
-| 3D / WebGL| three.js via `@react-three/fiber` (lazy-loaded) |
-| Motion    | GSAP + ScrollTrigger, Lenis smooth scroll |
+| Motion    | CSS animations/transitions, rAF, Lenis smooth scroll |
 | Styling   | CSS custom-property design tokens (no CSS framework) |
-| Hosting   | Vercel / Netlify (static `dist/`) |
+| Fonts     | Self-hosted: Fraunces, Public Sans, IBM Plex Mono |
+| Hosting   | Vercel (static `dist/`, auto-deployed from `main`) |
 
 ## Getting started
 
@@ -35,30 +47,33 @@ npm run preview    # serve the production build on :4173
 ```
 src/
 ├─ data/        Typed content (profile, experience, projects, stack, certs, journey)
-├─ styles/      tokens.css · global.css · animations.css
-├─ lib/         gsap setup, icon registry
-├─ hooks/       reduced-motion, pointer, gsap context, scroll progress
-└─ components/  layout · hero · about · flow · journey · stack · work · projects · certs · contact · ui
+├─ styles/      tokens.css · global.css · animations.css · fonts.css
+├─ hooks/       reduced-motion, pointer, theme, smooth scroll, in-view
+└─ components/  layout · hero (verify-demo) · about · flow · journey · stack
+                · sdk-demo · work · projects · certs · contact · ui
 ```
 
 All copy lives in `src/data/*.ts` — edit content there, not inside components.
 
-## Accessibility & performance
+## Performance & accessibility
 
-- Full `prefers-reduced-motion` support (motion is opt-out, never required).
-- WebGL canvases lazy-mount and pause when off-screen.
-- 3D code is code-split from the main bundle.
-- Keyboard navigable, visible focus, semantic landmarks.
+- No 3D or animation libraries — no GSAP, no three.js, zero runtime
+  third-party scripts.
+- Below-fold sections are code-split (React `lazy`) so the hero paints and
+  becomes interactive first.
+- Fonts are self-hosted `woff2` with preload + `fetchpriority` hints.
+- Full `prefers-reduced-motion` support; keyboard navigable with visible
+  focus; 44px+ tap targets; safe-area aware; Lighthouse 90+ perf/a11y.
 
-## Content to replace (placeholders)
+## Content placeholders to replace
 
 - `src/data/profile.ts` → real **LinkedIn** URL.
 - `public/Bakhtawar_Kashif_CV.pdf` → real CV (a stub ships today).
-- `public/media/og-image.*` → 1200×630 social share image (SVG stand-in ships).
+- `public/media/og-image.svg` → 1200×630 social share image (SVG stand-in ships).
 
-The portrait is in place at `public/media/photo.jpg` (shown inside the ID card).
-Stack icons are vendored SVGs in `public/icons/` (devicon, MIT license) so the
-site has no runtime CDN dependency.
+The portrait ships as a compressed WebP at `public/media/photo.webp` (shown
+inside the ID card). Stack icons are vendored SVGs in `public/icons/`
+(devicon, MIT license) so the site has no runtime CDN dependency.
 
 ## License
 
