@@ -7,6 +7,9 @@ GSAP / ScrollTrigger / Lenis, and WebGL by react-three-fiber.
 > Focus: KYC / KYB / AML interfaces, embeddable Web SDKs, and AI agent
 > workflows — presented as a product a client would be proud to ship.
 
+**Live:** https://bakhtawar-portfolio-theta.vercel.app
+**Repo:** https://github.com/bakhtawarUB/bakhtawar-portfolio
+
 ## Stack
 
 | Area      | Tech |
