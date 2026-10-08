@@ -88,6 +88,18 @@ header.site {
   mix-blend-mode: difference;
   color: #fff;
   pointer-events: none;
+  transition: background 0.4s var(--ease-out), backdrop-filter 0.4s var(--ease-out), color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+}
+
+/* Fade to solid on scroll (handled by JS adding .scrolled) */
+header.site.scrolled {
+  mix-blend-mode: normal;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--ink);
+  border-bottom-color: var(--grid-line);
 }
 
 header.site .wrap nav {
@@ -176,6 +188,7 @@ header.site .wrap ul a:hover {
 header.site.nav-open {
   mix-blend-mode: normal;
   color: var(--ink);
+  background: var(--paper);
 }
 
 header.site.nav-open .burger span:first-child {

@@ -8,6 +8,24 @@ interface HeaderProps {
 
 export function Header({ theme, onToggleTheme }: HeaderProps) {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  // once the page scrolls, switch from the transparent hero-blend nav to a solid bar
+  useEffect(() => {
+    let raf = 0
+    const onScroll = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 12)
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
 
   // lock scroll + escape-to-close while the mobile menu is open
   useEffect(() => {
@@ -27,7 +45,7 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
   const close = () => setOpen(false)
 
   return (
-    <header className={`site${open ? ' nav-open' : ''}`}>
+    <header className={`site${open ? ' nav-open' : ''}${scrolled ? ' scrolled' : ''}`}>
       <div className="wrap">
         <nav aria-label="Main">
           <a className="brand" href="#top" onClick={close}>
