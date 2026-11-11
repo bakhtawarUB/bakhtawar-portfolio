@@ -1,5 +1,6 @@
 import { useInView } from '../../hooks/useInView'
 import { journey, journeyAxis } from '../../data/projects'
+import { OrgLink } from '../ui/OrgLink'
 
 export function Journey() {
   const { setRef, inView } = useInView<HTMLDivElement>({ threshold: 0.35, once: true })
@@ -17,7 +18,7 @@ export function Journey() {
           {journey.map((lane) => (
             <div className="lane" key={lane.label}>
               <span className="lt" style={{ left: `calc(${lane.start * 100}%)` }}>
-                {lane.label}
+                <OrgLink href={lane.url}>{lane.label}</OrgLink>
               </span>
               <i
                 className={`bar ${lane.variant}`}

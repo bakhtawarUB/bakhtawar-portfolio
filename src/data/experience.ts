@@ -3,6 +3,7 @@ import type { ExperienceItem, SmallRole } from './types'
 export const experience: ExperienceItem[] = [
   {
     company: 'Shufti Pro',
+    url: 'https://shuftipro.com',
     meta: 'Global identity verification\nKYC, KYB, AML',
     open: true,
     tech: ['react', 'vue', 'angular', 'laravel', 'mongo'],
@@ -30,6 +31,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: 'Facia',
+    url: 'https://facia.io',
     meta: 'AI-powered identity\nverification',
     tech: ['react', 'js', 'ts'],
     points: [
@@ -44,16 +46,19 @@ export const smallRoles: SmallRole[] = [
   {
     title: 'Trainee Engineer',
     org: '10x Engineers, 2024 to 2026',
+    url: 'https://10xengineers.ai',
     body: 'Python, Linux, Vivado and RISC-V. Hands-on low-level systems and software workflows.',
   },
   {
     title: 'Teaching Assistant',
     org: 'ITU, 2023 to 2024',
+    url: 'https://itu.edu.pk',
     body: 'Taught data analysis and statistical workflows in STATA; supported labs and coursework.',
   },
   {
     title: 'BSc Computer Engineering',
     org: 'ITU Lahore, 2020 to 2024',
+    url: 'https://itu.edu.pk',
     body: 'CGPA 3.53. Academic Achievement Award, Crystal Shield.',
   },
 ]

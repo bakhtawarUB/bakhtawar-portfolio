@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { featured, others } from '../../data/projects'
 import type { FeaturedProject } from '../../data/types'
+import { OrgLink } from '../ui/OrgLink'
 
 export function Projects() {
   return (
@@ -46,28 +47,39 @@ function FeaturedRow({
 
   return (
     <li className={open ? 'pr open' : 'pr'}>
-      <button
-        type="button"
-        className="pr-head"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-      >
-        <span className="pr-title">
-          {project.title}
-          <span className="pr-ctx">{project.context}</span>
+      <div className="pr-head">
+        <button
+          type="button"
+          className="pr-toggle"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="pr-title">{project.title}</span>
+          <span className="pr-mark" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <path
+                d="M8 2v12M2 8h12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        </button>
+        <span className="pr-ctx">
+          {project.contextLinks?.length ? (
+            project.contextLinks.map((l, i) => (
+              <Fragment key={l.label}>
+                {i > 0 ? (l.sep ?? ' & ') : null}
+                <OrgLink href={l.href}>{l.label}</OrgLink>
+              </Fragment>
+            ))
+          ) : (
+            project.context
+          )}
         </span>
-        <span className="pr-mark" aria-hidden="true">
-          <svg viewBox="0 0 16 16">
-            <path
-              d="M8 2v12M2 8h12"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-            />
-          </svg>
-        </span>
-      </button>
+      </div>
       <div className="pr-wrap">
         <div className="pr-inner">
           <div className="pr-grid">

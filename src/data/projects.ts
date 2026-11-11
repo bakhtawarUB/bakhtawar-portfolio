@@ -8,6 +8,7 @@ export const featured: FeaturedProject[] = [
   {
     title: 'Embeddable identity Web SDK',
     context: 'Shufti Pro',
+    contextLinks: [{ label: 'Shufti Pro', href: 'https://shuftipro.com' }],
     problem:
       'Every enterprise client needed document, selfie and liveness capture, but shipping it per-integration fragmented the experience and stalled deals.',
     role: 'I owned the SDK surface end to end — the capture flow, the public API, and how it renders inside any host app.',
@@ -17,6 +18,10 @@ export const featured: FeaturedProject[] = [
   {
     title: 'KYC / KYB / AML enterprise dashboard',
     context: 'Shufti Pro & Facia',
+    contextLinks: [
+      { label: 'Shufti Pro', href: 'https://shuftipro.com' },
+      { label: 'Facia', href: 'https://facia.io', sep: ' & ' },
+    ],
     problem:
       'Reviewers juggled high-volume KYC, KYB and AML cases across dense enterprise screens where clarity and speed decided outcomes.',
     role: 'I designed the review screens and boarding flows, and built the shared component layer that new verification products launch on.',
@@ -26,6 +31,10 @@ export const featured: FeaturedProject[] = [
   {
     title: 'ClickUp-to-deploy agent workflows',
     context: 'Programmers Force · AI engineering',
+    contextLinks: [
+      { label: 'Programmers Force', href: 'https://programmersforce.com' },
+      { label: 'AI engineering', sep: ' · ' },
+    ],
     problem:
       'Repetitive engineering setup around repositories consumed time that was better spent building product.',
     role: 'I built the frontend and orchestration agents, and the pipeline that goes from a ClickUp requirement to a deployed change.',
@@ -60,15 +69,28 @@ export const others: OtherProject[] = [
 ]
 
 export const journey: JourneyLane[] = [
-  { label: 'BSc Computer Engineering, ITU Lahore', start: 0 / 7, width: 5 / 7, variant: 'b1' },
-  { label: 'Teaching Assistant, ITU', start: 3 / 7, width: 2 / 7, variant: 'b2' },
+  {
+    label: 'BSc Computer Engineering, ITU Lahore',
+    url: 'https://itu.edu.pk',
+    start: 0 / 7,
+    width: 5 / 7,
+    variant: 'b1',
+  },
+  { label: 'Teaching Assistant, ITU', url: 'https://itu.edu.pk', start: 3 / 7, width: 2 / 7, variant: 'b2' },
   {
     label: 'Programmers Force: Shufti Pro, Facia, AI automation',
+    url: 'https://programmersforce.com',
     start: 4 / 7,
     width: 3 / 7,
     variant: 'b3',
   },
-  { label: 'Trainee Engineer, 10x Engineers', start: 4 / 7, width: 3 / 7, variant: 'b2' },
+  {
+    label: 'Trainee Engineer, 10x Engineers',
+    url: 'https://10xengineers.ai',
+    start: 4 / 7,
+    width: 3 / 7,
+    variant: 'b2',
+  },
 ]
 
 export const journeyAxis = ['2020', '2021', '2022', '2023', '2024', '2025', '2026']

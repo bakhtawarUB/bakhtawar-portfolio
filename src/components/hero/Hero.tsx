@@ -42,7 +42,9 @@ export function Hero() {
                 <a href={profile.github} target="_blank" rel="noopener noreferrer">
                   GitHub
                 </a>
-                <span>{profile.company}</span>
+                <a href={profile.companyUrl} target="_blank" rel="noopener noreferrer">
+                  {profile.company}
+                </a>
               </p>
               <p className="hero-note">{profile.heroNote}</p>
             </div>

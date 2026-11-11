@@ -80,6 +80,19 @@ section {
   letter-spacing: -0.02em;
 }
 
+/* Inline external links (organisations) — inherit type, underline on hover */
+.org-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+
+.org-link:hover,
+.org-link:focus-visible {
+  border-bottom-color: currentColor;
+}
+
 /* Header / nav ------------------------------------------------------------ */
 header.site {
   position: fixed;
@@ -514,10 +527,6 @@ header.site.nav-open .burger span:last-child {
 .hero-social a:hover {
   color: var(--hi-2);
   border-color: currentColor;
-}
-
-.hero-social span {
-  color: color-mix(in srgb, #f3f4f6 66%, transparent);
 }
 
 .hero-note {
@@ -1874,12 +1883,20 @@ details.xp .body .pts span {
 
 .pr-head {
   width: 100%;
+  min-height: 74px;
+  padding: 18px 22px;
+  display: grid;
+  gap: 6px;
+  align-content: center;
+}
+
+.pr-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  min-height: 74px;
-  padding: 18px 22px;
+  width: 100%;
+  padding: 0;
   border: 0;
   background: none;
   cursor: pointer;
@@ -1890,16 +1907,30 @@ details.xp .body .pts span {
 }
 
 .pr-title {
-  display: grid;
-  gap: 6px;
+  display: block;
   min-width: 0;
 }
 
-.pr-title .pr-ctx {
+.pr-ctx {
+  display: block;
   font: 500 11.5px/1 var(--sans);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mute);
+}
+
+/* widen the tap target of context links without moving the layout */
+.pr-ctx .org-link {
+  display: inline-block;
+  padding: 7px 2px;
+  margin: -7px -2px;
+}
+
+.pr-ctx .org-link:hover,
+.pr-ctx .org-link:focus-visible {
+  border-bottom-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .pr-mark {

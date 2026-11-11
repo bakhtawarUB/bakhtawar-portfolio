@@ -1,5 +1,7 @@
 import { experience, smallRoles } from '../../data/experience'
+import { profile } from '../../data/profile'
 import { StackIcon } from '../ui/Icon'
+import { OrgLink } from '../ui/OrgLink'
 import { Points } from '../ui/Points'
 
 export function Work() {
@@ -8,13 +10,18 @@ export function Work() {
       <div className="wrap">
         <div className="head">
           <h2 className="section-h2">Experience</h2>
-          <p>Frontend and Full Stack Developer at Programmers Force, 2024 to 2026.</p>
+          <p>
+            Frontend and Full Stack Developer at{' '}
+            <OrgLink href={profile.companyUrl}>{profile.company}</OrgLink>, 2024 to 2026.
+          </p>
         </div>
 
         {experience.map((job) => (
           <details className="xp" key={job.company} open={job.open}>
             <summary>
-              <h3>{job.company}</h3>
+              <h3>
+                <OrgLink href={job.url}>{job.company}</OrgLink>
+              </h3>
               <span className="meta">
                 {job.meta.split('\n').map((line, i) => (
                   <span key={i}>
@@ -43,7 +50,9 @@ export function Work() {
           {smallRoles.map((r) => (
             <div key={r.title}>
               <h4>{r.title}</h4>
-              <small>{r.org}</small>
+              <small>
+                <OrgLink href={r.url}>{r.org}</OrgLink>
+              </small>
               <p>{r.body}</p>
             </div>
           ))}

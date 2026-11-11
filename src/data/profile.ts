@@ -13,6 +13,7 @@ export const profile = {
   role: 'Frontend & Full Stack Engineer',
   location: 'Lahore, Pakistan',
   company: 'Programmers Force',
+  companyUrl: 'https://programmersforce.com',
   tagline: 'Frontend and full stack engineer. I build the software and screens that verify people’s identities — fast, accurate and easy to work with.',
   heroNote: 'Lahore, Pakistan · open to remote',
   availability: 'Open to new roles',
