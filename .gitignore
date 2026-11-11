@@ -39,6 +39,9 @@ coverage
 .eslintcache
 .vercel
 
+# source portrait — only the optimized public/media/photo.webp ships
+/photo.jpg
+
 # opencode agent config (local only)
 .opencode/
 AGENTS.md
