@@ -42,6 +42,9 @@ coverage
 # source portrait — only the optimized public/media/photo.webp ships
 /photo.jpg
 
+# resume working folder — only the final PDFs under public/ ship
+/Bakhtwar CV/
+
 # opencode agent config (local only)
 .opencode/
 AGENTS.md

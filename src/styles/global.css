@@ -93,6 +93,13 @@ section {
   border-bottom-color: currentColor;
 }
 
+/* Tailored-resume note (only rendered for ?cv=<job>) */
+.resume-for {
+  font-size: 14px;
+  color: var(--mute);
+  margin: 10px 0 0;
+}
+
 /* Header / nav ------------------------------------------------------------ */
 header.site {
   position: fixed;
@@ -533,6 +540,10 @@ header.site.nav-open .burger span:last-child {
   margin: 0;
   color: color-mix(in srgb, #f3f4f6 80%, transparent);
   font-size: 14px;
+}
+
+.hero .resume-for {
+  color: color-mix(in srgb, #f3f4f6 88%, transparent);
 }
 
 /* Verification demo module -------------------------------------------- */

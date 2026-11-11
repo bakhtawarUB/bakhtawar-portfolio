@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { navLinks, profile } from '../../data/profile'
+import { useResume } from '../../hooks/useResume'
 
 interface HeaderProps {
   theme: 'light' | 'dark'
@@ -9,6 +10,7 @@ interface HeaderProps {
 export function Header({ theme, onToggleTheme }: HeaderProps) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const resume = useResume()
 
   // once the page scrolls, switch from the transparent hero-blend nav to a solid bar
   useEffect(() => {
@@ -113,7 +115,7 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
             >
               {profile.email}
             </a>
-            <a href={profile.cv} download onClick={close} tabIndex={open ? 0 : -1}>
+            <a href={resume.href} download onClick={close} tabIndex={open ? 0 : -1}>
               Download CV
             </a>
           </div>

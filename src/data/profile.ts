@@ -19,8 +19,7 @@ export const profile = {
   availability: 'Open to new roles',
   email: 'engr.bakhtawar1@gmail.com',
   siteUrl: 'https://bakhtawar.dev',
-  /** TODO: replace with the real profile URL */
-  linkedin: 'https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME',
+  linkedin: 'https://www.linkedin.com/in/bakhtawar-kashif-770a73256/',
   github: 'https://github.com/Bakhtawar-Kashif2252',
   cv: '/Bakhtawar_Kashif_CV.pdf',
   about: {

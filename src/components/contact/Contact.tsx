@@ -1,6 +1,10 @@
 import { contactLinks, profile } from '../../data/profile'
+import { useResume } from '../../hooks/useResume'
 
 export function Contact() {
+  const resume = useResume()
+  const links = contactLinks.map((l) => (l.download ? { ...l, href: resume.href } : l))
+
   return (
     <section className="contact" id="contact">
       <div className="wrap">
@@ -9,7 +13,7 @@ export function Contact() {
           {profile.email}
         </a>
         <div className="links">
-          {contactLinks.map((l) => (
+          {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
@@ -20,6 +24,7 @@ export function Contact() {
             </a>
           ))}
         </div>
+        {resume.label ? <p className="resume-for">Resume tailored for {resume.label}</p> : null}
       </div>
     </section>
   )

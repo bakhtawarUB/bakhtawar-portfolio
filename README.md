@@ -65,10 +65,40 @@ All copy lives in `src/data/*.ts` — edit content there, not inside components.
 - Full `prefers-reduced-motion` support; keyboard navigable with visible
   focus; 44px+ tap targets; safe-area aware; Lighthouse 90+ perf/a11y.
 
+## Tailored resumes (one per job)
+
+The default CV ships at `public/Bakhtawar_Kashif_CV.pdf`. To send a
+job-specific resume without touching any code:
+
+1. Tailor your CV for the role and save the PDF as `public/cv/<job-slug>.pdf`
+   (lowercase letters, numbers and hyphens only), e.g.
+   `public/cv/shufti-frontend.pdf`.
+2. Apply with the matching link appended to the site URL:
+
+   ```
+   https://bakhtawar-portfolio-theta.vercel.app/?cv=shufti-frontend
+   ```
+
+3. Every "View resume" / "Download CV" control on the page then serves that
+   PDF, and a quiet line near the hero and contact links reads
+   "Resume tailored for Shufti Frontend".
+
+Want a nicer label than the title-cased slug? Add it to `resumeLabels` in
+`src/data/resumes.ts`:
+
+```ts
+export const resumeLabels = {
+  'shufti-frontend': 'Shufti Pro — Frontend Engineer',
+}
+```
+
+Unknown or missing `?cv=` values fall back to the default CV, so a shared link
+never breaks the page. Recruiters who arrive without a `?cv=` link simply get
+the general resume.
+
 ## Content placeholders to replace
 
-- `src/data/profile.ts` → real **LinkedIn** URL.
-- `public/Bakhtawar_Kashif_CV.pdf` → real CV (a stub ships today).
+- `public/Bakhtawar_Kashif_CV.pdf` → keep the default CV current.
 - `public/media/og-image.svg` → 1200×630 social share image (SVG stand-in ships).
 
 The portrait ships as a compressed WebP at `public/media/photo.webp` (shown

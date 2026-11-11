@@ -1,9 +1,11 @@
 import { useReducedMotion } from '../../hooks/useReducedMotion'
+import { useResume } from '../../hooks/useResume'
 import { profile } from '../../data/profile'
 import { VerifyDemo } from './VerifyDemo'
 
 export function Hero() {
   const reduced = useReducedMotion()
+  const resume = useResume()
   void reduced
 
   return (
@@ -31,7 +33,7 @@ export function Hero() {
                 <a className="y" href={`mailto:${profile.email}`}>
                   Email me
                 </a>
-                <a href={profile.cv} download>
+                <a href={resume.href} download>
                   View resume
                 </a>
               </div>
@@ -47,6 +49,7 @@ export function Hero() {
                 </a>
               </p>
               <p className="hero-note">{profile.heroNote}</p>
+              {resume.label ? <p className="resume-for">Resume tailored for {resume.label}</p> : null}
             </div>
           </div>
         </div>
