@@ -92,9 +92,11 @@ export const resumeLabels = {
 }
 ```
 
-Unknown or missing `?cv=` values fall back to the default CV, so a shared link
-never breaks the page. Recruiters who arrive without a `?cv=` link simply get
-the general resume.
+A missing or malformed `?cv=` value falls back to the default CV, so the page
+never breaks. A well-formed slug whose PDF has not been uploaded yet still
+points at `/cv/<slug>.pdf` — upload the file **before** sharing the link, or
+the download 404s. Recruiters who arrive without a `?cv=` link simply get the
+general resume.
 
 ## Content placeholders to replace
 
