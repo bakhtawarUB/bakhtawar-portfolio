@@ -20,7 +20,7 @@ export const featured: FeaturedProject[] = [
     context: 'Shufti Pro & Facia',
     contextLinks: [
       { label: 'Shufti Pro', href: 'https://shuftipro.com' },
-      { label: 'Facia', href: 'https://facia.io', sep: ' & ' },
+      { label: 'Facia', href: 'https://facia.ai', sep: ' & ' },
     ],
     problem:
       'Reviewers juggled high-volume KYC, KYB and AML cases across dense enterprise screens where clarity and speed decided outcomes.',

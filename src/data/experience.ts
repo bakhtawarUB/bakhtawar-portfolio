@@ -31,7 +31,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: 'Facia',
-    url: 'https://facia.io',
+    url: 'https://facia.ai',
     meta: 'AI-powered identity\nverification',
     tech: ['react', 'js', 'ts'],
     points: [
